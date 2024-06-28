@@ -3,11 +3,11 @@ addEventListener('fetch', event => {
 })
 
 const keys = [
-  "478YA0Rv-Vg69y2W7-UA1M479q",
-  '6q857aNA-56h2Ilq0-GC1258li',
-  'N97G08Jb-Fp0z5o71-D5g80Ee7',
-  'hAS52u74-c39MY65w-3xWo056i',
-  '279n4XKo-aY4If176-xt1Iw926',
+  "TX3C894P-58A3rsu1-r283Rol5",
+  's1732aDi-Fl109XN6-v14b3Zl6',
+  '702s4ZoY-2i4vY9C7-y16X9Uz8',
+  '5b64q0sE-a4el69L0-4yH215mr',
+  '7O52LV4y-h5d87Yj9-8lac3G02',
 ];
 
 const headers = {
@@ -20,8 +20,20 @@ const headers = {
 
 async function handleRequest(request) {
   const key = await getKey();
-  return new Response(key, {
-    headers: { 'Content-Type': 'text/plain' },
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Generated Key</title>
+    </head>
+    <body>
+      <h1>Generated Key</h1>
+      <p>${key}</p>
+    </body>
+    </html>
+  `;
+  return new Response(html, {
+    headers: { 'Content-Type': 'text/html' },
   });
 }
 
